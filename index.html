@@ -134,21 +134,24 @@
   <section id="contact">
     <h2>İletişim</h2>
     <div class="card">
-      <form id="contact-form" action="https://formspree.io/f/mldlaova" method="POST">
-        <div style="display:grid; gap:12px; max-width:560px">
-          <input name="name" placeholder="Adınız" required>
-          <input type="email" name="email" placeholder="E-posta" required>
-          <textarea name="message" placeholder="Mesajınız" rows="4" required></textarea>
+       <form action="https://formspree.io/f/mldlaova" method="POST">
+          <div style="display:grid; gap:12px; max-width:560px">
+            <input name="name" placeholder="Adınız" required>
+            <input type="email" name="email" placeholder="E-posta" required>
+            <textarea name="message" placeholder="Mesajınız" rows="4" required></textarea>
+        
+            <!-- Basit honeypot -->
+            <input type="text" name="company" style="display:none">
+        
+            <!-- Başarılı gönderim sonrası nereye gitsin -->
+            <input type="hidden" name="_next" value="https://www.muratakar.net/tesekkurler.html">
+            <!-- (Opsiyonel) E-postadaki konu satırı -->
+            <input type="hidden" name="_subject" value="Yeni mesaj - muratakar.net">
+        
+            <button type="submit" style="padding:12px 16px; border-radius:12px; background:var(--accent); border:0; color:#042f2e; font-weight:700">Gönder</button>
+          </div>
+        </form>
 
-          <!-- Basit honeypot (spam tuzağı) -->
-          <input type="text" name="company" style="display:none">
-          <!-- Fallback yönlendirme (Formspree bu alanı yok sayabilir; zararsız) -->
-          <input type="hidden" name="_next" value="https://www.muratakar.net/tesekkurler.html">
-
-          <button type="submit" style="padding:12px 16px; border-radius:12px; background:var(--accent); border:0; color:#042f2e; font-weight:700">Gönder</button>
-          <span id="form-status" class="muted"></span>
-        </div>
-      </form>
       <p class="muted" style="margin-top:10px">Doğrudan: <a href="mailto:info@muratakar.net">info@muratakar.net</a> • LinkedIn/Twitter bağlantılarınızı ekleyin.</p>
     </div>
   </section>
