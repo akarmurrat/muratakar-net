@@ -120,16 +120,16 @@
     <div class="card">
       <!-- İsterseniz Formspree / Basin gibi servislerle formu çalışır hale getirebilirsiniz -->
       <form action="#" method="POST">
-        <form id="contact-form" action="https://formspree.io/f/info@muratakar.net" method="POST">
+        <form id="contact-form" action="https://formspree.io/f/mldlaova" method="POST">
             <div style="display:grid; gap:12px; max-width:560px">
-              <input name="name" placeholder="Adınız" required ...>
-              <input type="email" name="email" placeholder="E-posta" required ...>
-              <textarea name="message" placeholder="Mesajınız" rows="4" required ...></textarea>
+              <input name="name" placeholder="Adınız" required>
+              <input type="email" name="email" placeholder="E-posta" required>
+              <textarea name="message" placeholder="Mesajınız" rows="4" required></textarea>
           
-              <!-- Basit honeypot (botları yakalamak için) -->
+              <!-- Basit honeypot (istersen tut) -->
               <input type="text" name="company" style="display:none">
           
-              <button type="submit" ...>Gönder</button>
+              <button type="submit" style="padding:12px 16px; border-radius:12px; background:var(--accent); border:0; color:#042f2e; font-weight:700">Gönder</button>
               <span id="form-status" class="muted"></span>
             </div>
           </form>
@@ -158,15 +158,17 @@ form.addEventListener('submit', async (e) => {
 
     if (res.ok) {
       form.reset();
-      statusEl.textContent = 'Mesajın alındı. En kısa sürede dönüş yapacağım.';
+      // Başarıyla Formspree'e ulaştı: teşekkür sayfasına yönlendir
+      window.location.href = '/tesekkurler.html';
     } else {
       statusEl.textContent = 'Gönderimde bir sorun oldu. Lütfen tekrar dener misin?';
     }
-  } catch {
-    statusEl.textContent = 'Ağ bağlantı hatası. Birazdan tekrar dener misin?';
+  } catch (err) {
+    statusEl.textContent = 'Ağ hatası. Birazdan tekrar dener misin?';
   }
 });
 </script>
+
 
 <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
